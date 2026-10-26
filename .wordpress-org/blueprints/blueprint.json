@@ -1,0 +1,40 @@
+{
+	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
+	"meta": {
+		"title": "Search Steer",
+		"description": "Sample help-center posts with search keywords, stop keywords and a post hidden from search. Search the site for \"refund\" to see them at work.",
+		"author": "cornelraiu-1",
+		"categories": [
+			"Search"
+		]
+	},
+	"landingPage": "/wp-admin/edit.php",
+	"preferredVersions": {
+		"php": "8.3",
+		"wp": "latest"
+	},
+	"login": true,
+	"steps": [
+		{
+			"step": "installPlugin",
+			"pluginData": {
+				"resource": "wordpress.org/plugins",
+				"slug": "search-steer"
+			},
+			"options": {
+				"activate": true
+			}
+		},
+		{
+			"step": "setSiteOptions",
+			"options": {
+				"blogname": "Search Steer demo",
+				"permalink_structure": "/%postname%/"
+			}
+		},
+		{
+			"step": "runPHP",
+			"code": "<?php\nrequire_once '/wordpress/wp-load.php';\n\nuse SearchSteer\\Keywords\\Taxonomies;\nuse SearchSteer\\Visibility\\HiddenFlag;\n\n// Title, content, keywords, stop keywords, hidden, days ago.\n$posts = [\n\t[ 'Returns and exchanges', 'Send any item back within 30 days and we will exchange it or give your money back.', [ 'refund', 'money back', 'return policy' ], [], false, 2 ],\n\t[ 'Refund request form', 'Tell us your order number and we will send the money back to your card.', [], [], false, 4 ],\n\t[ 'Refund policy (2019)', 'Our old rules for refunds. Replaced by Returns and exchanges.', [], [ 'refund', 'return policy' ], false, 900 ],\n\t[ 'Track your parcel', 'Every order gets a tracking number by email when it ships.', [ 'tracking', 'where is my order', 'delivery' ], [], false, 6 ],\n\t[ 'Gift cards', 'Buy a gift card for any amount. It never expires.', [ 'voucher', 'present' ], [ 'discount code' ], false, 9 ],\n\t[ 'Holiday shipping dates', 'Order by December 18 to get your parcel before the holidays.', [ 'christmas', 'delivery' ], [], false, 30 ],\n\t[ 'Thank you for your order', 'We have your order and will email you when it ships.', [], [], true, 400 ],\n];\n\nforeach ( $posts as list( $title, $content, $keywords, $stop, $hidden, $days_ago ) ) {\n\t$date = gmdate( 'Y-m-d H:i:s', time() - $days_ago * DAY_IN_SECONDS );\n\t$id   = wp_insert_post( [\n\t\t'post_title'    => $title,\n\t\t'post_content'  => '<!-- wp:paragraph --><p>' . $content . '</p><!-- /wp:paragraph -->',\n\t\t'post_status'   => 'publish',\n\t\t'post_author'   => 1,\n\t\t'post_date'     => get_date_from_gmt( $date ),\n\t\t'post_date_gmt' => $date,\n\t] );\n\twp_set_object_terms( $id, $keywords, Taxonomies::KEYWORD );\n\twp_set_object_terms( $id, $stop, Taxonomies::STOP );\n\tHiddenFlag::set( $id, $hidden );\n}\n"
+		}
+	]
+}

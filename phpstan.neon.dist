@@ -1,0 +1,14 @@
+parameters:
+	level: 5
+	phpVersion:
+		min: 70400
+		max: 80599
+	paths:
+		- search-steer.php
+		- uninstall.php
+		- src
+	ignoreErrors:
+		# The requirements check exists for sites running PHP below the supported minimum.
+		-
+			identifier: booleanOr.leftAlwaysFalse
+			path: search-steer.php

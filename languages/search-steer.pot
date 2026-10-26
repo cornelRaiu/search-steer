@@ -1,0 +1,418 @@
+# Copyright (C) 2026 Cornel Raiu
+# This file is distributed under the GPLv3 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Search Steer 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-26T00:52:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: search-steer\n"
+
+#. Plugin Name of the plugin
+#: search-steer.php
+#: src/Admin/SettingsPage.php:23
+#: src/Admin/SettingsPage.php:24
+msgid "Search Steer"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: search-steer.php
+msgid "https://www.master-webtools.com/plugins/search-steer/"
+msgstr ""
+
+#. Description of the plugin
+#: search-steer.php
+msgid "Hide posts from site search, or steer search per post: keywords bring a post into the results, stop keywords keep it out."
+msgstr ""
+
+#. Author of the plugin
+#: search-steer.php
+msgid "Cornel Raiu"
+msgstr ""
+
+#. Author URI of the plugin
+#: search-steer.php
+msgid "https://www.cornelraiu.com/"
+msgstr ""
+
+#: search-steer.php:41
+msgid "Search Steer needs PHP 7.4 or later and WordPress 6.6 or later, so it is not running. Update PHP or WordPress to use it."
+msgstr ""
+
+#: search-steer.php:42
+msgid "Search Steer is missing its vendor folder, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
+msgstr ""
+
+#: src/Admin/EditorFields.php:56
+#: assets/js/editor.js:20
+msgid "Site search"
+msgstr ""
+
+#: src/Admin/EditorFields.php:68
+#: assets/js/editor.js:25
+msgid "The post never shows in your site's search results. It stays reachable at its own address."
+msgstr ""
+
+#: src/Admin/EditorFields.php:77
+#: src/Admin/PostList.php:212
+#: assets/js/editor.js:24
+msgid "Hide from site search"
+msgstr ""
+
+#: src/Admin/ImportSection.php:32
+msgid "Import hidden posts"
+msgstr ""
+
+#: src/Admin/ImportSection.php:34
+msgid "Search Exclude, Hide from Search and Hide Posts have no hidden posts on this site to import."
+msgstr ""
+
+#: src/Admin/ImportSection.php:39
+msgid "Hide the posts that another plugin hides from search. Its data is not changed, so you can import again, and then deactivate it."
+msgstr ""
+
+#. translators: %s: number of posts.
+#: src/Admin/ImportSection.php:54
+#, php-format
+msgid "%s hidden post found."
+msgid_plural "%s hidden posts found."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: plugin name.
+#: src/Admin/ImportSection.php:67
+#, php-format
+msgid "Import from %s"
+msgstr ""
+
+#: src/Admin/ImportSection.php:84
+msgid "Sorry, you are not allowed to import hidden posts."
+msgstr ""
+
+#: src/Admin/ImportSection.php:91
+msgid "Unknown plugin to import from."
+msgstr ""
+
+#. translators: %s: number of posts.
+#: src/Admin/ImportSection.php:121
+#, php-format
+msgid "%s post is now hidden from site search."
+msgid_plural "%s posts are now hidden from site search."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: comma-separated post type names.
+#: src/Admin/ImportSection.php:127
+#, php-format
+msgid "Some are of types that are not chosen under Post types above (%s), so they stay in search until you choose those types."
+msgstr ""
+
+#: src/Admin/PostList.php:49
+msgid "Search"
+msgstr ""
+
+#: src/Admin/PostList.php:67
+#: src/Admin/PostList.php:117
+msgid "Hidden from search"
+msgstr ""
+
+#: src/Admin/PostList.php:71
+msgid "Keywords:"
+msgstr ""
+
+#: src/Admin/PostList.php:72
+msgid "Stop:"
+msgstr ""
+
+#: src/Admin/PostList.php:100
+msgid "No search settings"
+msgstr ""
+
+#: src/Admin/PostList.php:114
+msgid "All search settings"
+msgstr ""
+
+#: src/Admin/PostList.php:115
+msgid "Has search keywords"
+msgstr ""
+
+#: src/Admin/PostList.php:116
+msgid "Has stop keywords"
+msgstr ""
+
+#: src/Admin/PostList.php:120
+msgid "Filter by search settings"
+msgstr ""
+
+#: src/Admin/PostList.php:213
+msgid "Show in site search"
+msgstr ""
+
+#. translators: %s: number of posts.
+#: src/Admin/PostList.php:258
+#, php-format
+msgid "%s post hidden from site search."
+msgid_plural "%s posts hidden from site search."
+msgstr[0] ""
+msgstr[1] ""
+
+#. translators: %s: number of posts.
+#: src/Admin/PostList.php:261
+#, php-format
+msgid "%s post shown in site search again."
+msgid_plural "%s posts shown in site search again."
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/Admin/SettingsPage.php:54
+msgid "Settings"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:73
+msgid "Add search keywords and stop keywords to a post in the editor sidebar, in quick edit or in bulk edit. A search that matches a keyword shows the post even when its title and content do not match. A search that matches a stop keyword hides the post even when its title or content match. To keep a post out of every search, turn on \"Hide from site search\" in the editor sidebar, in quick edit, or with the bulk action."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:82
+#: src/Admin/SettingsPage.php:85
+msgid "Post types"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:94
+msgid "Posts of these types can have keywords and stop keywords."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:99
+#: src/Admin/SettingsPage.php:100
+msgid "Keyword matching"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:103
+#: src/Admin/SettingsPage.php:104
+msgid "Stop keyword matching"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:107
+#: src/Admin/SettingsPage.php:110
+msgid "When both match"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:113
+msgid "Hide the post: stop keywords win"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:117
+msgid "Show the post: keywords win"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:119
+msgid "For a search such as \"refund coupon\" on a post with the keyword refund and the stop keyword coupon."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:124
+msgid "Order"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:125
+msgid "List posts that match by keyword first"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:125
+msgid "Applies when results are ordered by relevance, which is the default."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:128
+#: src/Admin/SettingsPage.php:131
+msgid "Where"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:132
+msgid "Keywords always apply to your site's search page."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:133
+msgid "Also apply them to REST API and AJAX searches"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:133
+msgid "Such as headless front ends, live search plugins and the link search in the editor."
+msgstr ""
+
+#: src/Admin/SettingsPage.php:134
+msgid "Also apply them to searches in the admin post lists"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:139
+msgid "Uninstall"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:140
+msgid "Delete all keywords, stop keywords, hidden flags and settings when the plugin is deleted"
+msgstr ""
+
+#: src/Admin/SettingsPage.php:182
+msgid "Whole words: \"gift\" matches \"gift card\" but not \"gifts\""
+msgstr ""
+
+#: src/Admin/SettingsPage.php:186
+msgid "Partial words: \"refund\" also matches \"refu\" and \"refunds\""
+msgstr ""
+
+#. translators: %s: post type name, such as "post".
+#: src/Import/Importer.php:66
+#, php-format
+msgid "Search Exclude hides every item of the type \"%s\". Select them in their list and use the \"Hide from site search\" bulk action instead."
+msgstr ""
+
+#. translators: %s: taxonomy name, such as "category".
+#: src/Import/Importer.php:77
+#, php-format
+msgid "Search Exclude hides posts by their \"%s\" terms. That setting is not imported."
+msgstr ""
+
+#: src/Import/Importer.php:85
+msgid "Search Exclude hides posts by their author. That setting is not imported."
+msgstr ""
+
+#: src/Keywords/RestController.php:36
+msgid "Sorry, you are not allowed to view these keywords."
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:24
+#: src/Keywords/Taxonomies.php:26
+msgid "Search Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:25
+msgid "Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:27
+msgid "All Search Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:28
+msgid "Edit Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:29
+msgid "View Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:30
+msgid "Update Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:31
+msgid "Add Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:32
+msgid "New Search Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:33
+msgid "Find Search Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:34
+msgid "Most Used Search Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:35
+msgid "Show this post when a search contains one of these words. Separate keywords with commas."
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:36
+msgid "Add or remove search keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:37
+msgid "Choose from the most used search keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:38
+msgid "No search keywords found."
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:39
+msgid "No search keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:40
+msgid "&larr; Go to Search Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:50
+#: src/Keywords/Taxonomies.php:52
+msgid "Stop Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:51
+msgid "Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:53
+msgid "All Stop Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:54
+msgid "Edit Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:55
+msgid "View Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:56
+msgid "Update Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:57
+msgid "Add Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:58
+msgid "New Stop Keyword"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:59
+msgid "Find Stop Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:60
+msgid "Most Used Stop Keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:61
+msgid "Hide this post when a search contains one of these words. Separate keywords with commas."
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:62
+msgid "Add or remove stop keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:63
+msgid "Choose from the most used stop keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:64
+msgid "No stop keywords found."
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:65
+msgid "No stop keywords"
+msgstr ""
+
+#: src/Keywords/Taxonomies.php:66
+msgid "&larr; Go to Stop Keywords"
+msgstr ""
+
+#: src/Visibility/HiddenFlag.php:50
+msgid "Whether the post is hidden from site search."
+msgstr ""

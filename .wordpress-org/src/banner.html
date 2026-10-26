@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Banner</title>
+<!-- An open font, so that the banner looks the same whichever computer renders it. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+	* { box-sizing: border-box; margin: 0; }
+	html, body { width: 1544px; height: 500px; }
+	body {
+		display: grid;
+		grid-template-columns: 1fr 660px;
+		align-items: center;
+		gap: 40px;
+		padding: 0 88px;
+		overflow: hidden;
+		background: radial-gradient(ellipse 820px 560px at 76% 50%, #17406b 0%, rgba(23, 64, 107, 0) 72%), #0e2a47;
+		color: #fff;
+		font-family: "IBM Plex Sans", sans-serif;
+	}
+	.logo { display: block; width: 92px; height: 92px; margin-bottom: 30px; }
+	h1 { font-size: 72px; line-height: 1.04; font-weight: 700; letter-spacing: -1px; }
+	p.tagline { margin-top: 22px; font-size: 28px; line-height: 1.35; color: #c6d3e3; white-space: nowrap; }
+	.results {
+		padding: 26px 28px 30px;
+		border-radius: 20px;
+		background: #fff;
+		color: #0e2a47;
+		box-shadow: 0 22px 48px rgba(3, 12, 24, 0.5);
+		transform: rotate(-2deg) translateX(20px);
+	}
+	.search {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding: 14px 18px;
+		border: 2px solid #d5dde8;
+		border-radius: 12px;
+		font-size: 26px;
+		font-weight: 500;
+	}
+	.search svg { width: 26px; height: 26px; flex: none; }
+	.result {
+		display: grid;
+		grid-template-columns: 1fr auto;
+		align-items: center;
+		gap: 18px;
+		margin-top: 16px;
+		padding: 16px 18px;
+		border-radius: 12px;
+		background: #f3f6fa;
+	}
+	.title { font-size: 26px; font-weight: 600; line-height: 1.2; }
+	.why { margin-top: 4px; font-size: 18px; color: #546277; }
+	.badge { padding: 6px 14px; border-radius: 999px; font-size: 18px; font-weight: 600; white-space: nowrap; }
+	.in .badge { background: #ffb547; color: #0e2a47; }
+	.out { background: none; border: 2px dashed #d5dde8; }
+	.out .title { color: #8a96a8; text-decoration: line-through; text-decoration-thickness: 2px; }
+	.out .badge { background: #e7ecf2; color: #546277; }
+</style>
+</head>
+<body>
+	<div>
+		<!-- The icon, on a tile a shade lighter than the banner. -->
+		<svg class="logo" viewBox="0 0 256 256" aria-hidden="true">
+			<rect width="256" height="256" rx="56" fill="#17406b"/>
+			<circle cx="108" cy="108" r="64" fill="#fff" fill-opacity="0.08" stroke="#fff" stroke-width="22"/>
+			<path d="M156 156 204 204" stroke="#fff" stroke-width="28" stroke-linecap="round"/>
+			<g transform="rotate(45 108 108)">
+				<path d="M108 60 123 108H93z" fill="#ffb547"/>
+				<path d="M108 156 123 108H93z" fill="#fff" fill-opacity="0.55"/>
+				<circle cx="108" cy="108" r="6" fill="#17406b"/>
+			</g>
+		</svg>
+		<h1>Search Steer</h1>
+		<p class="tagline">Bring posts into your site search.<br>Keep the wrong ones out.</p>
+	</div>
+	<!-- A search for "refund": one page found by its keyword, one kept out by its stop keyword. -->
+	<div class="results">
+		<div class="search">
+			<svg viewBox="0 0 24 24" fill="none" stroke="#546277" stroke-width="2.5" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+			refund
+		</div>
+		<div class="result in">
+			<div><div class="title">Returns and exchanges</div><div class="why">Never says "refund"</div></div>
+			<span class="badge">Keyword: refund</span>
+		</div>
+		<div class="result">
+			<div><div class="title">Refund request form</div><div class="why">Found by its title</div></div>
+		</div>
+		<div class="result out">
+			<div><div class="title">Refund policy (2019)</div><div class="why">Out of date</div></div>
+			<span class="badge">Stop keyword</span>
+		</div>
+	</div>
+</body>
+</html>
