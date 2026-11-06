@@ -1,7 +1,7 @@
 {
 	"$schema": "https://playground.wordpress.net/blueprint-schema.json",
 	"meta": {
-		"title": "Search Steer",
+		"title": "MWT Search Steer",
 		"description": "Sample help-center posts with search keywords, stop keywords and a post hidden from search. Search the site for \"refund\" to see them at work.",
 		"author": "cornelraiu-1",
 		"categories": [
@@ -19,7 +19,7 @@
 			"step": "installPlugin",
 			"pluginData": {
 				"resource": "wordpress.org/plugins",
-				"slug": "search-steer"
+				"slug": "mwt-search-steer"
 			},
 			"options": {
 				"activate": true
@@ -28,7 +28,7 @@
 		{
 			"step": "setSiteOptions",
 			"options": {
-				"blogname": "Search Steer demo",
+				"blogname": "MWT Search Steer demo",
 				"permalink_structure": "/%postname%/"
 			}
 		},

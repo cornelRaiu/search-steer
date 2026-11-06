@@ -18,7 +18,7 @@ require_once $mwtss_tests_dir . '/includes/functions.php';
 tests_add_filter(
 	'muplugins_loaded',
 	static function () use ( $mwtss_root ) {
-		require $mwtss_root . '/search-steer.php';
+		require $mwtss_root . '/mwt-search-steer.php';
 	}
 );
 

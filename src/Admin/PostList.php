@@ -23,7 +23,7 @@ final class PostList {
 	public const BULK_SHOW     = 'mwtss_show';
 	public const NOTICE_COUNT  = 'mwtss_bulk_count';
 	public const NOTICE_ACTION = 'mwtss_bulk_action';
-	public const SCRIPT        = 'search-steer-quick-edit';
+	public const SCRIPT        = 'mwt-search-steer-quick-edit';
 
 	public static function add_hooks(): void {
 		add_action( 'admin_init', [ self::class, 'add_post_type_hooks' ] );
@@ -46,7 +46,7 @@ final class PostList {
 
 	public static function add_column( $columns ) {
 		if ( is_array( $columns ) ) {
-			$columns[ self::COLUMN ] = __( 'Search', 'search-steer' );
+			$columns[ self::COLUMN ] = __( 'Search', 'mwt-search-steer' );
 		}
 
 		return $columns;
@@ -61,15 +61,15 @@ final class PostList {
 		$lines  = [];
 
 		// Read by the quick edit script to tick the checkbox.
-		printf( '<span class="search-steer-hidden-state" data-hidden="%s"></span>', $hidden ? '1' : '0' );
+		printf( '<span class="mwt-search-steer-hidden-state" data-hidden="%s"></span>', $hidden ? '1' : '0' );
 
 		if ( $hidden ) {
-			$lines[] = '<strong>' . esc_html__( 'Hidden from search', 'search-steer' ) . '</strong>';
+			$lines[] = '<strong>' . esc_html__( 'Hidden from search', 'mwt-search-steer' ) . '</strong>';
 		}
 
 		$labels = [
-			Taxonomies::KEYWORD => __( 'Keywords:', 'search-steer' ),
-			Taxonomies::STOP    => __( 'Stop:', 'search-steer' ),
+			Taxonomies::KEYWORD => __( 'Keywords:', 'mwt-search-steer' ),
+			Taxonomies::STOP    => __( 'Stop:', 'mwt-search-steer' ),
 		];
 		foreach ( $labels as $taxonomy => $label ) {
 			$terms = get_the_terms( $post_id, $taxonomy );
@@ -97,7 +97,7 @@ final class PostList {
 		}
 
 		if ( ! $lines ) {
-			echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">' . esc_html__( 'No search settings', 'search-steer' ) . '</span>';
+			echo '<span aria-hidden="true">&#8212;</span><span class="screen-reader-text">' . esc_html__( 'No search settings', 'mwt-search-steer' ) . '</span>';
 			return;
 		}
 
@@ -111,14 +111,14 @@ final class PostList {
 
 		$current = self::requested_filter();
 		$choices = [
-			''                  => __( 'All search settings', 'search-steer' ),
-			self::SHOW_KEYWORDS => __( 'Has search keywords', 'search-steer' ),
-			self::SHOW_STOP     => __( 'Has stop keywords', 'search-steer' ),
-			self::SHOW_HIDDEN   => __( 'Hidden from search', 'search-steer' ),
+			''                  => __( 'All search settings', 'mwt-search-steer' ),
+			self::SHOW_KEYWORDS => __( 'Has search keywords', 'mwt-search-steer' ),
+			self::SHOW_STOP     => __( 'Has stop keywords', 'mwt-search-steer' ),
+			self::SHOW_HIDDEN   => __( 'Hidden from search', 'mwt-search-steer' ),
 		];
 		?>
-		<label for="search-steer-filter" class="screen-reader-text"><?php esc_html_e( 'Filter by search settings', 'search-steer' ); ?></label>
-		<select name="<?php echo esc_attr( self::FILTER ); ?>" id="search-steer-filter">
+		<label for="mwt-search-steer-filter" class="screen-reader-text"><?php esc_html_e( 'Filter by search settings', 'mwt-search-steer' ); ?></label>
+		<select name="<?php echo esc_attr( self::FILTER ); ?>" id="mwt-search-steer-filter">
 			<?php foreach ( $choices as $value => $label ) : ?>
 				<option value="<?php echo esc_attr( $value ); ?>" <?php selected( $current, $value ); ?>><?php echo esc_html( $label ); ?></option>
 			<?php endforeach; ?>
@@ -209,8 +209,8 @@ final class PostList {
 
 	public static function add_bulk_actions( $actions ) {
 		if ( is_array( $actions ) ) {
-			$actions[ self::BULK_HIDE ] = __( 'Hide from site search', 'search-steer' );
-			$actions[ self::BULK_SHOW ] = __( 'Show in site search', 'search-steer' );
+			$actions[ self::BULK_HIDE ] = __( 'Hide from site search', 'mwt-search-steer' );
+			$actions[ self::BULK_SHOW ] = __( 'Show in site search', 'mwt-search-steer' );
 		}
 
 		return $actions;
@@ -255,10 +255,10 @@ final class PostList {
 
 		if ( self::BULK_HIDE === $action ) {
 			/* translators: %s: number of posts. */
-			$message = _n( '%s post hidden from site search.', '%s posts hidden from site search.', $count, 'search-steer' );
+			$message = _n( '%s post hidden from site search.', '%s posts hidden from site search.', $count, 'mwt-search-steer' );
 		} else {
 			/* translators: %s: number of posts. */
-			$message = _n( '%s post shown in site search again.', '%s posts shown in site search again.', $count, 'search-steer' );
+			$message = _n( '%s post shown in site search again.', '%s posts shown in site search again.', $count, 'mwt-search-steer' );
 		}
 
 		printf(

@@ -2,51 +2,51 @@
 # This file is distributed under the GPLv3 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Search Steer 1.0.0\n"
+"Project-Id-Version: MWT Search Steer 1.0.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/git\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-10-26T00:52:44+00:00\n"
+"POT-Creation-Date: 2026-11-05T00:32:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
-"X-Domain: search-steer\n"
+"X-Domain: mwt-search-steer\n"
 
 #. Plugin Name of the plugin
-#: search-steer.php
+#: mwt-search-steer.php
 #: src/Admin/SettingsPage.php:23
 #: src/Admin/SettingsPage.php:24
-msgid "Search Steer"
+msgid "MWT Search Steer"
 msgstr ""
 
 #. Plugin URI of the plugin
-#: search-steer.php
+#: mwt-search-steer.php
 msgid "https://www.master-webtools.com/plugins/search-steer/"
 msgstr ""
 
 #. Description of the plugin
-#: search-steer.php
+#: mwt-search-steer.php
 msgid "Hide posts from site search, or steer search per post: keywords bring a post into the results, stop keywords keep it out."
 msgstr ""
 
 #. Author of the plugin
-#: search-steer.php
+#: mwt-search-steer.php
 msgid "Cornel Raiu"
 msgstr ""
 
 #. Author URI of the plugin
-#: search-steer.php
+#: mwt-search-steer.php
 msgid "https://www.cornelraiu.com/"
 msgstr ""
 
-#: search-steer.php:41
-msgid "Search Steer needs PHP 7.4 or later and WordPress 6.6 or later, so it is not running. Update PHP or WordPress to use it."
+#: mwt-search-steer.php:41
+msgid "MWT Search Steer needs PHP 7.4 or later and WordPress 6.6 or later, so it is not running. Update PHP or WordPress to use it."
 msgstr ""
 
-#: search-steer.php:42
-msgid "Search Steer is missing its vendor folder, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
+#: mwt-search-steer.php:42
+msgid "MWT Search Steer is missing its vendor folder, so it is not running. Run composer install, or reinstall the plugin from WordPress.org."
 msgstr ""
 
 #: src/Admin/EditorFields.php:56

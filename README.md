@@ -1,4 +1,4 @@
-# Search Steer
+# MWT Search Steer
 
 WordPress plugin that steers native search per post: **hide from site search** keeps a post out of every search, **search keywords** bring a post into the results, **stop keywords** keep it out.
 
@@ -57,7 +57,7 @@ putenv( 'WP_TESTS_DB_HOST=127.0.0.1:33061' );
 | `composer analyse` | PHPStan, level 5 |
 | `composer test` | PHPUnit, unit and integration suites |
 | `composer ci` | All of the above |
-| `bin/build-zip.sh` | Builds `dist/search-steer/` and `dist/search-steer.zip` for WordPress.org |
+| `bin/build-zip.sh` | Builds `dist/mwt-search-steer/` and `dist/mwt-search-steer.zip` for WordPress.org |
 | `npm run assets` | Renders the icon and banners in `.wordpress-org/` from `icon.svg` and `src/banner.html` |
 | `npm run screenshots` | Takes the listing screenshots on a test site (see below) |
 

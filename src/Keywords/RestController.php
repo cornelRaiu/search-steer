@@ -33,7 +33,7 @@ final class RestController extends WP_REST_Terms_Controller {
 
 		return new WP_Error(
 			'rest_forbidden',
-			__( 'Sorry, you are not allowed to view these keywords.', 'search-steer' ),
+			__( 'Sorry, you are not allowed to view these keywords.', 'mwt-search-steer' ),
 			[ 'status' => rest_authorization_required_code() ]
 		);
 	}

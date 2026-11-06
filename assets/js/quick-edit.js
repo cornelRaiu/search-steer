@@ -11,7 +11,7 @@
 	window.inlineEditPost.edit = function ( id ) {
 		const result = edit.apply( this, arguments );
 		const postId = typeof id === 'object' ? parseInt( this.getId( id ), 10 ) : id;
-		const state = document.querySelector( '#post-' + postId + ' .search-steer-hidden-state' );
+		const state = document.querySelector( '#post-' + postId + ' .mwt-search-steer-hidden-state' );
 		const checkbox = document.querySelector(
 			'#edit-' + postId + ' input[name="' + config.field + '"]'
 		);

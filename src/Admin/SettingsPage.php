@@ -20,8 +20,8 @@ final class SettingsPage {
 
 	public static function add_page(): void {
 		add_options_page(
-			__( 'Search Steer', 'search-steer' ),
-			__( 'Search Steer', 'search-steer' ),
+			__( 'MWT Search Steer', 'mwt-search-steer' ),
+			__( 'MWT Search Steer', 'mwt-search-steer' ),
 			'manage_options',
 			self::PAGE,
 			[ self::class, 'render' ]
@@ -51,7 +51,7 @@ final class SettingsPage {
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( admin_url( 'options-general.php?page=' . self::PAGE ) ),
-				esc_html__( 'Settings', 'search-steer' )
+				esc_html__( 'Settings', 'mwt-search-steer' )
 			)
 		);
 
@@ -70,7 +70,7 @@ final class SettingsPage {
 			<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 			<p>
-				<?php esc_html_e( 'Add search keywords and stop keywords to a post in the editor sidebar, in quick edit or in bulk edit. A search that matches a keyword shows the post even when its title and content do not match. A search that matches a stop keyword hides the post even when its title or content match. To keep a post out of every search, turn on "Hide from site search" in the editor sidebar, in quick edit, or with the bulk action.', 'search-steer' ); ?>
+				<?php esc_html_e( 'Add search keywords and stop keywords to a post in the editor sidebar, in quick edit or in bulk edit. A search that matches a keyword shows the post even when its title and content do not match. A search that matches a stop keyword hides the post even when its title or content match. To keep a post out of every search, turn on "Hide from site search" in the editor sidebar, in quick edit, or with the bulk action.', 'mwt-search-steer' ); ?>
 			</p>
 			<?php self::render_term_links( $settings['post_types'] ); ?>
 
@@ -79,10 +79,10 @@ final class SettingsPage {
 
 				<table class="form-table" role="presentation">
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Post types', 'search-steer' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Post types', 'mwt-search-steer' ); ?></th>
 						<td>
 							<fieldset>
-								<legend class="screen-reader-text"><?php esc_html_e( 'Post types', 'search-steer' ); ?></legend>
+								<legend class="screen-reader-text"><?php esc_html_e( 'Post types', 'mwt-search-steer' ); ?></legend>
 								<?php // Sent so that unticking every post type saves an empty list. ?>
 								<input type="hidden" name="<?php echo esc_attr( $name ); ?>[post_types][]" value="" />
 								<?php foreach ( self::available_post_types() as $post_type => $label ) : ?>
@@ -91,53 +91,53 @@ final class SettingsPage {
 										<?php echo esc_html( $label ); ?>
 									</label><br />
 								<?php endforeach; ?>
-								<p class="description"><?php esc_html_e( 'Posts of these types can have keywords and stop keywords.', 'search-steer' ); ?></p>
+								<p class="description"><?php esc_html_e( 'Posts of these types can have keywords and stop keywords.', 'mwt-search-steer' ); ?></p>
 							</fieldset>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Keyword matching', 'search-steer' ); ?></th>
-						<td><?php self::render_match_field( 'keyword_match', $settings['keyword_match'], __( 'Keyword matching', 'search-steer' ) ); ?></td>
+						<th scope="row"><?php esc_html_e( 'Keyword matching', 'mwt-search-steer' ); ?></th>
+						<td><?php self::render_match_field( 'keyword_match', $settings['keyword_match'], __( 'Keyword matching', 'mwt-search-steer' ) ); ?></td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Stop keyword matching', 'search-steer' ); ?></th>
-						<td><?php self::render_match_field( 'stop_match', $settings['stop_match'], __( 'Stop keyword matching', 'search-steer' ) ); ?></td>
+						<th scope="row"><?php esc_html_e( 'Stop keyword matching', 'mwt-search-steer' ); ?></th>
+						<td><?php self::render_match_field( 'stop_match', $settings['stop_match'], __( 'Stop keyword matching', 'mwt-search-steer' ) ); ?></td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'When both match', 'search-steer' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'When both match', 'mwt-search-steer' ); ?></th>
 						<td>
 							<fieldset>
-								<legend class="screen-reader-text"><?php esc_html_e( 'When both match', 'search-steer' ); ?></legend>
+								<legend class="screen-reader-text"><?php esc_html_e( 'When both match', 'mwt-search-steer' ); ?></legend>
 								<label>
 									<input type="radio" name="<?php echo esc_attr( $name ); ?>[precedence]" value="<?php echo esc_attr( Settings::PRECEDENCE_STOP ); ?>" <?php checked( Settings::PRECEDENCE_STOP, $settings['precedence'] ); ?> />
-									<?php esc_html_e( 'Hide the post: stop keywords win', 'search-steer' ); ?>
+									<?php esc_html_e( 'Hide the post: stop keywords win', 'mwt-search-steer' ); ?>
 								</label><br />
 								<label>
 									<input type="radio" name="<?php echo esc_attr( $name ); ?>[precedence]" value="<?php echo esc_attr( Settings::PRECEDENCE_KEYWORD ); ?>" <?php checked( Settings::PRECEDENCE_KEYWORD, $settings['precedence'] ); ?> />
-									<?php esc_html_e( 'Show the post: keywords win', 'search-steer' ); ?>
+									<?php esc_html_e( 'Show the post: keywords win', 'mwt-search-steer' ); ?>
 								</label>
-								<p class="description"><?php esc_html_e( 'For a search such as "refund coupon" on a post with the keyword refund and the stop keyword coupon.', 'search-steer' ); ?></p>
+								<p class="description"><?php esc_html_e( 'For a search such as "refund coupon" on a post with the keyword refund and the stop keyword coupon.', 'mwt-search-steer' ); ?></p>
 							</fieldset>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Order', 'search-steer' ); ?></th>
-						<td><?php self::render_checkbox( 'boost', $settings['boost'], __( 'List posts that match by keyword first', 'search-steer' ), __( 'Applies when results are ordered by relevance, which is the default.', 'search-steer' ) ); ?></td>
+						<th scope="row"><?php esc_html_e( 'Order', 'mwt-search-steer' ); ?></th>
+						<td><?php self::render_checkbox( 'boost', $settings['boost'], __( 'List posts that match by keyword first', 'mwt-search-steer' ), __( 'Applies when results are ordered by relevance, which is the default.', 'mwt-search-steer' ) ); ?></td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Where', 'search-steer' ); ?></th>
+						<th scope="row"><?php esc_html_e( 'Where', 'mwt-search-steer' ); ?></th>
 						<td>
 							<fieldset>
-								<legend class="screen-reader-text"><?php esc_html_e( 'Where', 'search-steer' ); ?></legend>
-								<p><?php esc_html_e( 'Keywords always apply to your site\'s search page.', 'search-steer' ); ?></p>
-								<?php self::render_checkbox( 'api_search', $settings['api_search'], __( 'Also apply them to REST API and AJAX searches', 'search-steer' ), __( 'Such as headless front ends, live search plugins and the link search in the editor.', 'search-steer' ) ); ?>
-								<?php self::render_checkbox( 'admin_search', $settings['admin_search'], __( 'Also apply them to searches in the admin post lists', 'search-steer' ), '' ); ?>
+								<legend class="screen-reader-text"><?php esc_html_e( 'Where', 'mwt-search-steer' ); ?></legend>
+								<p><?php esc_html_e( 'Keywords always apply to your site\'s search page.', 'mwt-search-steer' ); ?></p>
+								<?php self::render_checkbox( 'api_search', $settings['api_search'], __( 'Also apply them to REST API and AJAX searches', 'mwt-search-steer' ), __( 'Such as headless front ends, live search plugins and the link search in the editor.', 'mwt-search-steer' ) ); ?>
+								<?php self::render_checkbox( 'admin_search', $settings['admin_search'], __( 'Also apply them to searches in the admin post lists', 'mwt-search-steer' ), '' ); ?>
 							</fieldset>
 						</td>
 					</tr>
 					<tr>
-						<th scope="row"><?php esc_html_e( 'Uninstall', 'search-steer' ); ?></th>
-						<td><?php self::render_checkbox( 'delete_data', $settings['delete_data'], __( 'Delete all keywords, stop keywords, hidden flags and settings when the plugin is deleted', 'search-steer' ), '' ); ?></td>
+						<th scope="row"><?php esc_html_e( 'Uninstall', 'mwt-search-steer' ); ?></th>
+						<td><?php self::render_checkbox( 'delete_data', $settings['delete_data'], __( 'Delete all keywords, stop keywords, hidden flags and settings when the plugin is deleted', 'mwt-search-steer' ), '' ); ?></td>
 					</tr>
 				</table>
 
@@ -179,11 +179,11 @@ final class SettingsPage {
 			<legend class="screen-reader-text"><?php echo esc_html( $legend ); ?></legend>
 			<label>
 				<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( Settings::MATCH_TERM ); ?>" <?php checked( Settings::MATCH_TERM, $value ); ?> />
-				<?php esc_html_e( 'Whole words: "gift" matches "gift card" but not "gifts"', 'search-steer' ); ?>
+				<?php esc_html_e( 'Whole words: "gift" matches "gift card" but not "gifts"', 'mwt-search-steer' ); ?>
 			</label><br />
 			<label>
 				<input type="radio" name="<?php echo esc_attr( $name ); ?>" value="<?php echo esc_attr( Settings::MATCH_PARTIAL ); ?>" <?php checked( Settings::MATCH_PARTIAL, $value ); ?> />
-				<?php esc_html_e( 'Partial words: "refund" also matches "refu" and "refunds"', 'search-steer' ); ?>
+				<?php esc_html_e( 'Partial words: "refund" also matches "refu" and "refunds"', 'mwt-search-steer' ); ?>
 			</label>
 		</fieldset>
 		<?php

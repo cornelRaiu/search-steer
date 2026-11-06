@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Builds the release folder dist/search-steer/ and dist/search-steer.zip.
+# Builds the release folder dist/mwt-search-steer/ and dist/mwt-search-steer.zip.
 # The folder is what Plugin Check inspects and what gets deployed to WordPress.org.
 set -euo pipefail
 
-slug="search-steer"
+slug="mwt-search-steer"
 root="$(cd "$(dirname "$0")/.." && pwd)"
 dist="$root/dist"
 target="$dist/$slug"

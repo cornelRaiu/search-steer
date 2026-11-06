@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Search Steer
+ * Plugin Name:       MWT Search Steer
  * Plugin URI:        https://www.master-webtools.com/plugins/search-steer/
  * Description:       Hide posts from site search, or steer search per post: keywords bring a post into the results, stop keywords keep it out.
  * Version:           1.0.0
@@ -10,7 +10,7 @@
  * Author URI:        https://www.cornelraiu.com/
  * License:           GPLv3 or later
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain:       search-steer
+ * Text Domain:       mwt-search-steer
  * Domain Path:       /languages
  *
  * @package SearchSteer
@@ -38,8 +38,8 @@ if ( '' !== $mwtss_problem ) {
 			}
 
 			$message = 'requirements' === $mwtss_problem
-				? __( 'Search Steer needs PHP 7.4 or later and WordPress 6.6 or later, so it is not running. Update PHP or WordPress to use it.', 'search-steer' )
-				: __( 'Search Steer is missing its vendor folder, so it is not running. Run composer install, or reinstall the plugin from WordPress.org.', 'search-steer' );
+				? __( 'MWT Search Steer needs PHP 7.4 or later and WordPress 6.6 or later, so it is not running. Update PHP or WordPress to use it.', 'mwt-search-steer' )
+				: __( 'MWT Search Steer is missing its vendor folder, so it is not running. Run composer install, or reinstall the plugin from WordPress.org.', 'mwt-search-steer' );
 
 			printf( '<div class="notice notice-error"><p>%s</p></div>', esc_html( $message ) );
 		}

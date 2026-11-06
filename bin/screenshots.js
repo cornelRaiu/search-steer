@@ -20,7 +20,7 @@ const base = ( process.env.WP_BASE_URL || 'http://localhost:8889' ).replace(
 );
 const out = path.join( __dirname, '..', '.wordpress-org' );
 const demo = {
-	username: 'search-steer-demo',
+	username: 'mwt-search-steer-demo',
 	password: crypto.randomBytes( 16 ).toString( 'hex' ),
 };
 
@@ -217,7 +217,7 @@ async function shoot( page, file, { selector, height = 800, margin = 24 } = {} )
 				'edit-post/document'
 			);
 			const open = [
-				'search-steer/search-steer',
+				'mwt-search-steer/mwt-search-steer',
 				'taxonomy-panel-mwtss_keyword',
 				'taxonomy-panel-mwtss_stop_keyword',
 			];

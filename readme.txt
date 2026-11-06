@@ -1,4 +1,4 @@
-=== Search Steer ===
+=== MWT Search Steer ===
 Contributors: cornelraiu-1
 Tags: search, exclude from search, hide from search, search keywords, search results
 Requires at least: 6.6
@@ -12,7 +12,7 @@ Hide posts from site search, or steer search per post: keywords bring a post int
 
 == Description ==
 
-WordPress search only looks at a post's title, excerpt and content. Search Steer gives you three controls, post by post:
+WordPress search only looks at a post's title, excerpt and content. MWT Search Steer gives you three controls, post by post:
 
 * **Hide from site search** keeps a post out of every search. Use it for thank-you pages, landing pages, old announcements and anything else visitors should not find by searching.
 * **Search keywords** bring a post into the results. Give "Returns and exchanges" the keywords refund and money back, and a search for "refund" finds it, even though the word is nowhere in the post.
@@ -22,7 +22,7 @@ Set them in the editor sidebar, in quick edit, or for many posts at once with bu
 
 = Moving from another plugin =
 
-Search Steer imports the posts that **Search Exclude**, **Hide from Search** and **Hide Posts** hide from search, with one click under Settings > Search Steer. The other plugin's data is not changed, so you can import, check, and then deactivate it.
+MWT Search Steer imports the posts that **Search Exclude**, **Hide from Search** and **Hide Posts** hide from search, with one click under Settings > MWT Search Steer. The other plugin's data is not changed, so you can import, check, and then deactivate it.
 
 = Built to stay out of the way =
 
@@ -35,7 +35,7 @@ Search Steer imports the posts that **Search Exclude**, **Hide from Search** and
 
 = Settings =
 
-Under Settings > Search Steer you choose:
+Under Settings > MWT Search Steer you choose:
 
 * **Post types** that can have search settings. Posts and pages by default.
 * **How keywords match**, separately for keywords and stop keywords:
@@ -59,7 +59,7 @@ To turn them off for one query, pass `'mwtss_skip' => true` to `WP_Query`.
 
 1. Install and activate the plugin from Plugins > Add New.
 2. Open a post and use the Site search panel and the keyword panels in the sidebar.
-3. Optional: change the matching and other options under Settings > Search Steer.
+3. Optional: change the matching and other options under Settings > MWT Search Steer.
 
 == Frequently Asked Questions ==
 
@@ -69,7 +69,7 @@ No. It only stays out of your site's search results. It is still listed in menus
 
 = Does it hide posts from Google? =
 
-No. Search Steer controls the search on your own site. To keep a page out of search engines, use your SEO plugin's "noindex" setting.
+No. MWT Search Steer controls the search on your own site. To keep a page out of search engines, use your SEO plugin's "noindex" setting.
 
 = Why does a hidden post still show in my live search? =
 
@@ -77,15 +77,15 @@ Live search boxes often search through the REST API or admin-ajax.php. Tick "Als
 
 = Does it work with Relevanssi, SearchWP, Jetpack Search or ElasticPress? =
 
-No. Those plugins replace WordPress's own search query with their own index, and Search Steer changes WordPress's own query. Use their exclusion features instead.
+No. Those plugins replace WordPress's own search query with their own index, and MWT Search Steer changes WordPress's own query. Use their exclusion features instead.
 
 = Does it work with WooCommerce? =
 
-Yes, for the product search on the shop's search page, which uses WordPress's own query. Choose Products under Post types in the settings.
+Yes, for the product search on the shop's search page, which uses WordPress's own query. Choose Products under Post types in the settings. WooCommerce's own visibility still applies: search keywords do not bring in a product whose catalog visibility leaves it out of search, or an out-of-stock product when the shop hides those.
 
 = How do I import from Search Exclude, Hide from Search or Hide Posts? =
 
-Go to Settings > Search Steer and click the import button for your plugin. The section shows only the plugins that have hidden posts on your site. Search Exclude can also hide every post of a type, a category or an author. Those settings are listed but not imported: select the posts in their list and use the "Hide from site search" bulk action.
+Go to Settings > MWT Search Steer and click the import button for your plugin. The section shows only the plugins that have hidden posts on your site. Search Exclude can also hide every post of a type, a category or an author. Those settings are listed but not imported: select the posts in their list and use the "Hide from site search" bulk action.
 
 = Does a search need to match every word? =
 

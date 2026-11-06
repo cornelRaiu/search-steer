@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<ruleset name="Search Steer">
+<ruleset name="MWT Search Steer">
 	<description>WordPress Coding Standards without the documentation rules, with PSR-4 file names and short array syntax.</description>
 
-	<file>search-steer.php</file>
+	<file>mwt-search-steer.php</file>
 	<file>uninstall.php</file>
 	<file>src</file>
 
@@ -27,7 +27,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="search-steer"/>
+				<element value="mwt-search-steer"/>
 			</property>
 		</properties>
 	</rule>

@@ -44,7 +44,7 @@ final class Importer {
 		return $ids;
 	}
 
-	// Search Exclude can also hide every post of a type, a term or an author. Search Steer hides
+	// Search Exclude can also hide every post of a type, a term or an author. MWT Search Steer hides
 	// single posts, so those settings are reported instead of imported.
 	public static function notes( string $source ): array {
 		if ( self::SEARCH_EXCLUDE !== $source ) {
@@ -63,7 +63,7 @@ final class Importer {
 			if ( is_array( $entry ) && ! empty( $entry['all'] ) ) {
 				$notes[] = sprintf(
 					/* translators: %s: post type name, such as "post". */
-					__( 'Search Exclude hides every item of the type "%s". Select them in their list and use the "Hide from site search" bulk action instead.', 'search-steer' ),
+					__( 'Search Exclude hides every item of the type "%s". Select them in their list and use the "Hide from site search" bulk action instead.', 'mwt-search-steer' ),
 					sanitize_key( (string) $post_type )
 				);
 			}
@@ -74,7 +74,7 @@ final class Importer {
 			if ( is_array( $entry ) && ( ! empty( $entry['all'] ) || ! empty( $entry['ids'] ) ) ) {
 				$notes[] = sprintf(
 					/* translators: %s: taxonomy name, such as "category". */
-					__( 'Search Exclude hides posts by their "%s" terms. That setting is not imported.', 'search-steer' ),
+					__( 'Search Exclude hides posts by their "%s" terms. That setting is not imported.', 'mwt-search-steer' ),
 					sanitize_key( (string) $taxonomy )
 				);
 			}
@@ -82,7 +82,7 @@ final class Importer {
 
 		$author = isset( $settings['author'] ) && is_array( $settings['author'] ) ? $settings['author'] : [];
 		if ( ! empty( $author['all'] ) || ! empty( $author['ids'] ) ) {
-			$notes[] = __( 'Search Exclude hides posts by their author. That setting is not imported.', 'search-steer' );
+			$notes[] = __( 'Search Exclude hides posts by their author. That setting is not imported.', 'mwt-search-steer' );
 		}
 
 		return $notes;

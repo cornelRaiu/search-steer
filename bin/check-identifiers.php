@@ -12,7 +12,7 @@
  */
 
 $root  = dirname( __DIR__ );
-$files = [ $root . '/search-steer.php', $root . '/uninstall.php' ];
+$files = [ $root . '/mwt-search-steer.php', $root . '/uninstall.php' ];
 
 $iterator = new RecursiveIteratorIterator( new RecursiveDirectoryIterator( $root . '/src', FilesystemIterator::SKIP_DOTS ) );
 foreach ( $iterator as $file ) {

@@ -14,7 +14,7 @@ final class EditorFields {
 	public const FIELD        = 'mwtss_hide_from_search';
 	public const NONCE        = 'mwtss_hide_from_search_nonce';
 	public const NONCE_ACTION = 'mwtss_save_hide_from_search';
-	public const SCRIPT       = 'search-steer-editor';
+	public const SCRIPT       = 'mwt-search-steer-editor';
 
 	// An unticked checkbox is not sent at all. This field tells it apart from a form without it.
 	public const FIELD_PRESENT = 'mwtss_hide_from_search_present';
@@ -43,7 +43,7 @@ final class EditorFields {
 			'window.searchSteerEditor = ' . wp_json_encode( [ 'field' => HiddenFlag::REST_FIELD ] ) . ';',
 			'before'
 		);
-		wp_set_script_translations( self::SCRIPT, 'search-steer' );
+		wp_set_script_translations( self::SCRIPT, 'mwt-search-steer' );
 	}
 
 	public static function add_meta_box( string $post_type ): void {
@@ -52,8 +52,8 @@ final class EditorFields {
 		}
 
 		add_meta_box(
-			'search-steer',
-			__( 'Site search', 'search-steer' ),
+			'mwt-search-steer',
+			__( 'Site search', 'mwt-search-steer' ),
 			[ self::class, 'render_meta_box' ],
 			$post_type,
 			'side',
@@ -65,7 +65,7 @@ final class EditorFields {
 
 	public static function render_meta_box( WP_Post $post ): void {
 		self::render_fields( HiddenFlag::is_hidden( $post->ID ) );
-		echo '<p class="description">' . esc_html__( 'The post never shows in your site\'s search results. It stays reachable at its own address.', 'search-steer' ) . '</p>';
+		echo '<p class="description">' . esc_html__( 'The post never shows in your site\'s search results. It stays reachable at its own address.', 'mwt-search-steer' ) . '</p>';
 	}
 
 	public static function render_fields( bool $checked ): void {
@@ -74,7 +74,7 @@ final class EditorFields {
 		<input type="hidden" name="<?php echo esc_attr( self::FIELD_PRESENT ); ?>" value="1" />
 		<label>
 			<input type="checkbox" name="<?php echo esc_attr( self::FIELD ); ?>" value="1" <?php checked( $checked ); ?> />
-			<?php esc_html_e( 'Hide from site search', 'search-steer' ); ?>
+			<?php esc_html_e( 'Hide from site search', 'mwt-search-steer' ); ?>
 		</label>
 		<?php
 	}

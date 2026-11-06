@@ -1,5 +1,5 @@
 {
-    "name": "cornelraiu/search-steer",
+    "name": "cornelraiu/mwt-search-steer",
     "description": "WordPress plugin: per-post keywords that bring a post into native search results, and stop keywords that keep it out.",
     "type": "wordpress-plugin",
     "license": "GPL-3.0-or-later",

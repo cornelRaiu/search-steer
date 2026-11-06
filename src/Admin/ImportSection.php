@@ -29,14 +29,14 @@ final class ImportSection {
 			}
 		}
 		?>
-		<h2><?php esc_html_e( 'Import hidden posts', 'search-steer' ); ?></h2>
+		<h2><?php esc_html_e( 'Import hidden posts', 'mwt-search-steer' ); ?></h2>
 		<?php if ( ! $rows ) : ?>
-			<p><?php esc_html_e( 'Search Exclude, Hide from Search and Hide Posts have no hidden posts on this site to import.', 'search-steer' ); ?></p>
+			<p><?php esc_html_e( 'Search Exclude, Hide from Search and Hide Posts have no hidden posts on this site to import.', 'mwt-search-steer' ); ?></p>
 			<?php
 			return;
 		endif;
 		?>
-		<p><?php esc_html_e( 'Hide the posts that another plugin hides from search. Its data is not changed, so you can import again, and then deactivate it.', 'search-steer' ); ?></p>
+		<p><?php esc_html_e( 'Hide the posts that another plugin hides from search. Its data is not changed, so you can import again, and then deactivate it.', 'mwt-search-steer' ); ?></p>
 		<table class="form-table" role="presentation">
 			<?php foreach ( $rows as $source => $row ) : ?>
 				<tr>
@@ -51,7 +51,7 @@ final class ImportSection {
 								echo esc_html(
 									sprintf(
 										/* translators: %s: number of posts. */
-										_n( '%s hidden post found.', '%s hidden posts found.', $row['count'], 'search-steer' ),
+										_n( '%s hidden post found.', '%s hidden posts found.', $row['count'], 'mwt-search-steer' ),
 										number_format_i18n( $row['count'] )
 									)
 								);
@@ -64,7 +64,7 @@ final class ImportSection {
 								<?php
 								submit_button(
 									/* translators: %s: plugin name. */
-									sprintf( __( 'Import from %s', 'search-steer' ), $row['name'] ),
+									sprintf( __( 'Import from %s', 'mwt-search-steer' ), $row['name'] ),
 									'secondary',
 									'submit',
 									false
@@ -81,14 +81,14 @@ final class ImportSection {
 
 	public static function handle(): void {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( esc_html__( 'Sorry, you are not allowed to import hidden posts.', 'search-steer' ), 403 );
+			wp_die( esc_html__( 'Sorry, you are not allowed to import hidden posts.', 'mwt-search-steer' ), 403 );
 		}
 
 		check_admin_referer( self::ACTION );
 
 		$source = isset( $_POST[ self::FIELD_SOURCE ] ) ? sanitize_key( wp_unslash( $_POST[ self::FIELD_SOURCE ] ) ) : '';
 		if ( ! isset( Importer::sources()[ $source ] ) ) {
-			wp_die( esc_html__( 'Unknown plugin to import from.', 'search-steer' ), 400 );
+			wp_die( esc_html__( 'Unknown plugin to import from.', 'mwt-search-steer' ), 400 );
 		}
 
 		$result = Importer::run( $source );
@@ -118,13 +118,13 @@ final class ImportSection {
 
 		$message = sprintf(
 			/* translators: %s: number of posts. */
-			_n( '%s post is now hidden from site search.', '%s posts are now hidden from site search.', $count, 'search-steer' ),
+			_n( '%s post is now hidden from site search.', '%s posts are now hidden from site search.', $count, 'mwt-search-steer' ),
 			number_format_i18n( $count )
 		);
 		if ( $types ) {
 			$message .= ' ' . sprintf(
 				/* translators: %s: comma-separated post type names. */
-				__( 'Some are of types that are not chosen under Post types above (%s), so they stay in search until you choose those types.', 'search-steer' ),
+				__( 'Some are of types that are not chosen under Post types above (%s), so they stay in search until you choose those types.', 'mwt-search-steer' ),
 				implode( ', ', $types )
 			);
 		}

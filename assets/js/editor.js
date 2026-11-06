@@ -16,15 +16,15 @@
 		return el(
 			wp.editor.PluginDocumentSettingPanel,
 			{
-				name: 'search-steer',
-				title: __( 'Site search', 'search-steer' ),
+				name: 'mwt-search-steer',
+				title: __( 'Site search', 'mwt-search-steer' ),
 			},
 			el( wp.components.ToggleControl, {
 				__nextHasNoMarginBottom: true,
-				label: __( 'Hide from site search', 'search-steer' ),
+				label: __( 'Hide from site search', 'mwt-search-steer' ),
 				help: __(
 					"The post never shows in your site's search results. It stays reachable at its own address.",
-					'search-steer'
+					'mwt-search-steer'
 				),
 				checked: hidden,
 				onChange: ( value ) => editPost( { [ config.field ]: value } ),
@@ -32,5 +32,5 @@
 		);
 	}
 
-	wp.plugins.registerPlugin( 'search-steer', { render: HideFromSearchPanel } );
+	wp.plugins.registerPlugin( 'mwt-search-steer', { render: HideFromSearchPanel } );
 } )( window.wp, window.searchSteerEditor );

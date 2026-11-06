@@ -47,7 +47,7 @@ final class HiddenFlag {
 				'get_callback'    => [ self::class, 'rest_get' ],
 				'update_callback' => [ self::class, 'rest_update' ],
 				'schema'          => [
-					'description' => __( 'Whether the post is hidden from site search.', 'search-steer' ),
+					'description' => __( 'Whether the post is hidden from site search.', 'mwt-search-steer' ),
 					'type'        => 'boolean',
 					'context'     => [ 'edit' ],
 				],

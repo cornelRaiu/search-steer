@@ -104,10 +104,10 @@ jobs:
 
       - uses: wordpress/plugin-check-action@v1
         with:
-          build-dir: dist/search-steer
-          slug: search-steer
+          build-dir: dist/mwt-search-steer
+          slug: mwt-search-steer
 
       - uses: actions/upload-artifact@v7
         with:
-          name: search-steer
-          path: dist/search-steer.zip
+          name: mwt-search-steer
+          path: dist/mwt-search-steer.zip
