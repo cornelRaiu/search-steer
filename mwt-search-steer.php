@@ -3,7 +3,7 @@
  * Plugin Name:       MWT Search Steer
  * Plugin URI:        https://www.master-webtools.com/plugins/search-steer/
  * Description:       Hide posts from site search, or steer search per post: keywords bring a post into the results, stop keywords keep it out.
- * Version:           1.0.1
+ * Version:           1.0.0
  * Requires at least: 6.6
  * Requires PHP:      7.4
  * Author:            Cornel Raiu
