@@ -1,6 +1,6 @@
 {
     "name": "mwt-search-steer",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": true,
     "description": "Tools that render the WordPress.org assets of the MWT Search Steer plugin.",
     "license": "GPL-3.0-or-later",

@@ -14,7 +14,7 @@ defined( 'ABSPATH' ) || exit;
 
 final class Plugin {
 
-	public const VERSION = '1.0.0';
+	public const VERSION = '1.0.1';
 
 	private static string $file = '';
 

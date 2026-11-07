@@ -4,7 +4,7 @@ Tags: search, exclude from search, hide from search, search keywords, search res
 Requires at least: 6.6
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -109,6 +109,9 @@ They are kept, unless you tick "Delete all keywords, stop keywords, hidden flags
 6. Import the posts that Search Exclude, Hide from Search or Hide Posts hide from search, with one click.
 
 == Changelog ==
+
+= 1.0.1 =
+* Fixed: keywords and stop keywords with common words, such as "where is my order" or "how to return", now match in whole-word mode.
 
 = 1.0.0 =
 * First release.
