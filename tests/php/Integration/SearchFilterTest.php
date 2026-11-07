@@ -95,6 +95,14 @@ final class SearchFilterTest extends TestCase {
 		$this->assertSame( [], $this->search( 'how to return' ) );
 	}
 
+	public function test_common_search_words_do_not_match_part_of_a_keyword(): void {
+		$this->set_settings( [ 'keyword_match' => Settings::MATCH_PARTIAL ] );
+		$this->create_post( 'Customizer guide', [ 'Theme settings' ] );
+		$post = $this->create_post( 'Returns and exchanges', [ 'Refund' ] );
+
+		$this->assertSame( [ $post ], $this->search( 'the refund' ) );
+	}
+
 	public function test_visitors_do_not_get_password_protected_posts_by_keyword(): void {
 		$this->create_post( 'Best car of 2026', [ 'Refund' ], [], [ 'post_password' => 'secret' ] );
 

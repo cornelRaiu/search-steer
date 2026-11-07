@@ -14,7 +14,9 @@ final class Matcher {
 	// Term mode: every word of the keyword is a whole word of the search, so "gift" matches
 	// "gift card" but not "gifts". Partial mode: the search contains the keyword, or a search
 	// word is part of it, so "refu" matches "refund". Case and accents never matter.
-	public static function match( array $search_terms, array $keywords, string $mode ): array {
+	// $common_words, such as "the", are never matched as part of a keyword in partial mode, or a
+	// search for "the refund" would match the keyword "theme".
+	public static function match( array $search_terms, array $keywords, string $mode, array $common_words = [] ): array {
 		$search_words = [];
 		foreach ( $search_terms as $term ) {
 			$search_words = array_merge( $search_words, self::words( (string) $term ) );
@@ -26,6 +28,7 @@ final class Matcher {
 		}
 
 		$search_phrase = ' ' . implode( ' ', $search_words ) . ' ';
+		$fragments     = array_diff( $search_words, self::words( implode( ' ', $common_words ) ) );
 		$matched       = [];
 
 		foreach ( $keywords as $id => $name ) {
@@ -35,7 +38,7 @@ final class Matcher {
 			}
 
 			if ( Settings::MATCH_PARTIAL === $mode ) {
-				$is_match = self::matches_partially( $keyword_words, $search_words, $search_phrase );
+				$is_match = self::matches_partially( $keyword_words, $fragments, $search_phrase );
 			} else {
 				$is_match = ! array_diff( $keyword_words, $search_words );
 			}
@@ -55,14 +58,14 @@ final class Matcher {
 		return is_array( $words ) ? array_values( array_unique( $words ) ) : [];
 	}
 
-	private static function matches_partially( array $keyword_words, array $search_words, string $search_phrase ): bool {
+	private static function matches_partially( array $keyword_words, array $fragments, string $search_phrase ): bool {
 		$keyword = implode( ' ', $keyword_words );
 
 		if ( false !== strpos( $search_phrase, $keyword ) ) {
 			return true;
 		}
 
-		foreach ( $search_words as $word ) {
+		foreach ( $fragments as $word ) {
 			if ( mb_strlen( $word, 'UTF-8' ) >= self::MIN_PARTIAL_LENGTH && false !== strpos( $keyword, $word ) ) {
 				return true;
 			}

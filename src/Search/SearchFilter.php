@@ -111,10 +111,11 @@ final class SearchFilter {
 	private static function matches( WP_Query $query ): array {
 		$terms    = self::search_terms( $query );
 		$settings = Settings::all();
+		$common   = self::common_words();
 
 		return [
-			'keyword' => Matcher::match( $terms, self::keywords( Taxonomies::KEYWORD ), $settings['keyword_match'] ),
-			'stop'    => Matcher::match( $terms, self::keywords( Taxonomies::STOP ), $settings['stop_match'] ),
+			'keyword' => Matcher::match( $terms, self::keywords( Taxonomies::KEYWORD ), $settings['keyword_match'], $common ),
+			'stop'    => Matcher::match( $terms, self::keywords( Taxonomies::STOP ), $settings['stop_match'], $common ),
 		];
 	}
 
@@ -146,6 +147,18 @@ final class SearchFilter {
 		}
 
 		return $included;
+	}
+
+	// Core's own list of common search words, translated and filtered by wp_search_stopwords.
+	// WP_Query only reads it in a protected method, hence the small subclass.
+	private static function common_words(): array {
+		$query = new class() extends WP_Query {
+			public function common_words(): array {
+				return (array) $this->get_search_stopwords();
+			}
+		};
+
+		return $query->common_words();
 	}
 
 	private static function keywords( string $taxonomy ): array {

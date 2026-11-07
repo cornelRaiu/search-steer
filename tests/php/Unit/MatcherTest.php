@@ -63,6 +63,22 @@ final class MatcherTest extends TestCase {
 		$this->assertSame( [ 6 ], $this->match( [ 'eu' ], Settings::MATCH_PARTIAL ) );
 	}
 
+	public function test_partial_mode_ignores_common_search_words_inside_keywords(): void {
+		$keywords = [
+			1 => 'Theme settings',
+			2 => 'The refund',
+		];
+
+		$this->assertSame( [], Matcher::match( [ 'the', 'policy' ], $keywords, Settings::MATCH_PARTIAL, [ 'the' ] ) );
+		$this->assertSame( [ 2 ], Matcher::match( [ 'the refund' ], $keywords, Settings::MATCH_PARTIAL, [ 'the' ] ) );
+	}
+
+	public function test_whole_word_mode_keeps_common_words(): void {
+		$keywords = [ 1 => 'Where is my order' ];
+
+		$this->assertSame( [ 1 ], Matcher::match( [ 'where', 'is', 'my', 'order' ], $keywords, Settings::MATCH_TERM, [ 'where', 'is' ] ) );
+	}
+
 	public function test_an_empty_search_matches_nothing(): void {
 		$this->assertSame( [], $this->match( [ '', ' - ' ] ) );
 	}
