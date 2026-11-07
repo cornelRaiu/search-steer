@@ -82,6 +82,19 @@ final class SearchFilterTest extends TestCase {
 		$this->assertSame( [], $this->search( 'car -refund' ) );
 	}
 
+	public function test_keywords_with_common_words_match(): void {
+		$post = $this->create_post( 'Track your parcel', [ 'Where is my order' ] );
+
+		$this->assertSame( [ $post ], $this->search( 'where is my order' ) );
+		$this->assertSame( [ $post ], $this->search( '"where is my order"' ) );
+	}
+
+	public function test_stop_keywords_with_common_words_match(): void {
+		$this->create_post( 'How to return an item', [], [ 'How to return' ] );
+
+		$this->assertSame( [], $this->search( 'how to return' ) );
+	}
+
 	public function test_visitors_do_not_get_password_protected_posts_by_keyword(): void {
 		$this->create_post( 'Best car of 2026', [ 'Refund' ], [], [ 'post_password' => 'secret' ] );
 

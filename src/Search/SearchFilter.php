@@ -119,9 +119,19 @@ final class SearchFilter {
 	}
 
 	private static function search_terms( WP_Query $query ): array {
-		$terms = $query->get( 'search_terms' );
-		if ( ! is_array( $terms ) || ! $terms ) {
-			$terms = [ (string) $query->get( 's' ) ];
+		// Split the search the way core does, but not from search_terms: core drops common words
+		// such as "is" and "how" from it, so a keyword like "where is my order" could never match.
+		$search = trim( (string) $query->get( 's' ) );
+		if ( $query->get( 'sentence' ) ) {
+			$terms = [ $search ];
+		} else {
+			preg_match_all( '/".*?("|$)|((?<=[\t ",+])|^)[^\t ",+]+/', $search, $found );
+			$terms = array_map(
+				static function ( string $term ): string {
+					return trim( $term, "\"' " );
+				},
+				$found[0]
+			);
 		}
 
 		// Core reads words such as "-coupon" as exclusions. They must not match keywords.
