@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       MWT Search Steer
+ * Plugin Name:       MWT Search Steer – Hide from Search & Search Keywords
  * Plugin URI:        https://www.master-webtools.com/plugins/search-steer/
  * Description:       Hide posts from site search, or steer search per post: keywords bring a post into the results, stop keywords keep it out.
  * Version:           1.0.0

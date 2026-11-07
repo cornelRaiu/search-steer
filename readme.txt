@@ -1,4 +1,4 @@
-=== MWT Search Steer ===
+=== MWT Search Steer – Hide from Search & Search Keywords ===
 Contributors: cornelraiu-1
 Tags: search, exclude from search, hide from search, search keywords, search results
 Requires at least: 6.6
